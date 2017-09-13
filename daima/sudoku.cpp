@@ -115,7 +115,7 @@ s[check+3]='t';
 	 t=strlen(c);
 	
     for(int l=0;l<t;l++)
-	{if(c[l]>='9'||c[l]<='0')
+	{if(c[l]>'9'||c[l]<'0')
 	{
 	cout<<"输出错误"<<endl;
 	return 0;}
