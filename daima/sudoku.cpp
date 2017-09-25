@@ -11,7 +11,7 @@ using namespace std;
    
 int arr[10][10];   
 int s;
-
+int test[10];
 bool get_arr(int i,int j)//搜索第（i，j）位置处可以存储的数字,找到解则返回true，否则返回false  
 {  
     if(i>9||j>9)   
@@ -20,7 +20,12 @@ bool get_arr(int i,int j)//搜索第（i，j）位置处可以存储的数字,�
     for(int k=1;k<=9;++k)   
     {   s=rand()%9+1;//S是随机生成的，保证了数独的随机性 
         bool can=true; //can变量用于记录数字s能否放在(i,j)处  
-        
+        test[k]=s;
+		for(int ts=1;ts<k;ts++)
+		{if (test[ts]==test[k])
+			test[k]=test[ts]%9+1;
+		 } 
+		 s=test[k];
         for( int m=1;m<i;++m)   
             if(arr[m][j]==s)  
             {  
