@@ -20,12 +20,38 @@ bool get_arr(int i,int j)//搜索第（i，j）位置处可以存储的数字,�
     for(int k=1;k<=9;++k)   
     {   s=rand()%9+1;//S是随机生成的，保证了数独的随机性 
         bool can=true; //can变量用于记录数字s能否放在(i,j)处  
-        test[k]=s;
-		for(int ts=1;ts<k;ts++)
-		{if (test[ts]==test[k])
-			test[k]=test[ts]%9+1;
-		 } 
-		 s=test[k];
+       	for(int ts=1;ts<k;ts++)
+		{if(test[ts]==0) 
+			{
+			test[ts]==s; 
+			break;
+			}else if(test[ts]<s)
+				continue;
+			else if(test[ts]>s)
+					{
+						for(int ts2=k+1;ts2>ts;ts2--)
+							{test[ts2]=test[ts2-1];}
+						test[ts]=s;	
+						break;
+					}
+		else if (test[ts]==s)
+			{do
+				{s++;
+				ts++;				}
+			while(test[ts]==s);
+			if(test[ts]==0)
+				{
+				test[ts]=s;	
+				break;}
+			else 
+				{
+				for(int ts3=k+1;ts3>ts;ts3--)
+					{test[ts3]=test[ts3-1];}
+					test[ts]=s;
+					break;
+				}
+		 	} 
+		}
         for( int m=1;m<i;++m)   
             if(arr[m][j]==s)  
             {  
@@ -62,7 +88,8 @@ bool get_arr(int i,int j)//搜索第（i，j）位置处可以存储的数字,�
         if(can)   
         {  
             arr[i][j]=s;//将数字填入 
-			 
+				  for(int k2=1;k2<=9;k2++)
+            		test[k2]=0; 
             if(j<9)   
             {  
                 if(get_arr(i,j+1))//填第一行的下一列 
@@ -80,7 +107,8 @@ bool get_arr(int i,int j)//搜索第（i，j）位置处可以存储的数字,�
    
             }  
             arr[i][j]=0;//不能填入要重置0
-        }  
+       for(int k2=1;k2<=9;k2++)
+            test[k2]=0; }  
     }  
     return false;//全部试过了之后还不成功就返回上一步 
 } 
