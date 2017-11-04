@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>同学录记录删除</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid #FFFFFF;
+        }
+        table td {
+            text-align: center;
+            height: 30px;
+            font-size: 12px;
+            line-height: 30px;
+            border: 1px solid #efecec;
+        }
+    </style>
+</head>
+<body>
+<h1 align="center">同学录记录删除</h1>
+<div class="widget-content padded clearfix">
+    <table id="AddFamily" class="table table-bordered table-striped" width="1000px" border="0" cellspacing="0" cellpadding="0" style="margin: 0 auto">
+        <thead>
+        <th class="check-header hidden-xs">
+            <input id="checkAll" name="checkAll" type="checkbox">
+        <th>姓名</th>
+        <th>家庭住址 </th>
+        <th>电话 </th>
+        <th>微信</th>
+        <th>邮箱 </th>
+        <th>QQ</th>
+        <th>个性语言</th>
+        </thead>
+        <tbody id="mainbody">
+        <tr>
+            <td>
+                <input name="checkbox" type="checkbox" id="1">
+            </td>
+            <td data-field="Name">  </td>
+            <td data-field="RelationShip"> </td>
+            <td data-field="Age"> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="page-container">
+    <form style=" margin-top: 15px" action="" method="post" >
+        <button id="btnDel" type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteForm" onclick="">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>删除
+        </button>
+        <button id="build" type="button" class="btn btn-success" data-toggle="modal" data-target="" onclick="javascript:window.location.href='index.html'">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>返回主页
+        </button>
+    </form>
+</div>
+</body>
+</html>
